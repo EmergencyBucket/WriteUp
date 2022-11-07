@@ -48,8 +48,9 @@ The path for the flag url and the solution url should be in this format
 ╭──────────────────────────────╮ ╭──────────────────────────────╮ ╭──────────────────────────────╮
 ac72c3ecbd95984a48a1890735da8c10 b7dd222b9addf2ab7b17778c6b8fc353 7852861c969f6738865996481438b29d
 ```
-The path's binary length is 384 and since the binary is being compared, the first step is to use binary then convert to hex befor testing the string.
-The python operator ``^`` compares the binary of two integers.
+The path's binary length is 384 and since the binary is being compared, the first step is to use binary then convert to hex befor testing the string.  
+The python operator ``^`` compares the binary of two integers.  
+This is the exploit we can use to guess and check bits in our path.  
 Here is an example:
 ```
 11000
