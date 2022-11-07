@@ -89,3 +89,47 @@ def get_background(path : str):
     background = req.text.split("background: #")[1].split("\"")[0]
     return int(background, 16)
 ```
+Here is the final solution:
+```python
+import requests
+
+# Calculates the distance for the website background
+# @param padded_url: The path in the request url; 96 length hexadecimal string
+# @param flag_path: The path to get the flag; 96 length hexadecimal string
+def get_distances(padded_url : str, flag_path : str):
+    distances = [] # The distances for the background
+    for i in range(3): # RGB Triplet
+        # calculate hamming distance on 16 byte subgroups
+        flag_subgroup = flag_path[i*32:i*32+32] # Gets 32 chars of the string based on which iteration it is on
+                
+        z = int(padded_url[i*32:i*32+32], 16)^int(flag_subgroup, 16) # Gets the bit difference between the current 32 hex section and the flag 32 hex section
+        distances.append(bin(z).count('1')) # Adds the number of 1's to the distance
+        
+    return distances # Returns the distance array
+    
+def get_background(path : str):
+    req = requests.get(f"https://hambone.chall.pwnoh.io/{path}")
+    background = req.text.split("background: #")[1].split("\"")[0]
+    return int(background, 16)
+
+# The background when the value of the path is 0
+zero_bg = "c6b4c5"
+
+curr_path = ""
+
+for i in range(384):
+    path = "0"*(383-i)+"1"+"0"*i
+    dis = hex(int(path, 2)).split("0x")[1].zfill(96)
+    print(f"Currently testing: {dis}")
+    result = get_background(dis)
+    zero = int(zero_bg, 16)
+    current = result
+
+    if current > zero:
+        curr_path = "1"+curr_path
+    else:
+        curr_path = "0"+curr_path
+
+
+print(curr_path)
+```
