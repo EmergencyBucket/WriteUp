@@ -135,3 +135,27 @@ print(curr_path)
 ```
 Output:
 ![](https://i.mrxbox98.me/file/2022/11/WindowsTerminal_pGQ4KOPO6G.gif)
+At the end the program will output ``101011000111001011000011111011001011110110010101100110000100101001001000101000011000100100000111001101011101101010001100000100001011011111011101001000100010101110011010110111011111001010101011011110110001011101110111100011000110101110001111110000110101001101111000010100101000011000011100100101101001111101100111001110001000011001011001100101100100100000010100001110001011001010011101`` which converted into hex is ``ac72c3ecbd95984a48a1890735da8c10b7dd222b9addf2ab7b17778c6b8fc3537852861c969f6738865996481438b29d`` which means the final path is https://hambone.chall.pwnoh.io/ac72c3ecbd95984a48a1890735da8c10b7dd222b9addf2ab7b17778c6b8fc3537852861c969f6738865996481438b29d  
+Chrome and some other browsers sometimes autocapitalize the path, but running ``wget https://hambone.chall.pwnoh.io/ac72c3ecbd95984a48a1890735da8c10b7dd222b9addf2ab7b17778c6b8fc3537852861c969f6738865996481438b29d`` creates a file with the contents:
+```html
+<!doctype html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title></title>
+
+  </head>
+  <body style="background: #ffffff">
+    <div id="content">
+        <div class='container-fluid my-5'>
+            <p style="color:#000000"> Whoa! How&#39;d you find this? Guess I owe you the flag: buckeye{th3_b4ckgr0und_i5_n0t_4_l13} </p>
+        </div>
+    </div>
+    <div>
+  </body>
+</html>
+```
+so the flag is ``buckeye{th3_b4ckgr0und_i5_n0t_4_l13}``
