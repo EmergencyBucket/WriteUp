@@ -55,7 +55,7 @@ Here is an example:
 ```
 11000
 01011
------ Caret Operator
+----- XOR Operator
 10011
 ```
 If the two bits are the same the binary of the background will have a 0 in that place and if they are different the binary will have a 1.  
@@ -133,3 +133,5 @@ for i in range(384):
 
 print(curr_path)
 ```
+Output:
+![](https://i.mrxbox98.me/file/2022/11/WindowsTerminal_pGQ4KOPO6G.gif)
