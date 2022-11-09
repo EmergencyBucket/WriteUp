@@ -143,9 +143,9 @@ Since the nonce is known for each output, it is possible to reverse engineer the
 # First, generate the string of nonces. Each character of the nonce will be XORed with a character of the ciphertext
 nonces = ""
 for i in range(10):
-    nonces = nonces + 28*str(i)
+    nonces = nonces + 28 * str(i)
 for i in range(10,40):
-    nonces = nonces + 14*str(i)
+    nonces = nonces + 14 * str(i)
 # Second, read and parse the output cipher texts from the output.txt file
 outputs = []
 puts = []
@@ -173,7 +173,7 @@ while True:
 # Third, decipher the message by XORing each cipher character with each nonce character
 message = []
 for i, j in zip(outputs, nonces):
-    message.append(int(i)^ord(j))
+    message.append(int(i) ^ ord(j))
 
 # Fourth, generate a string containing the entire plaintext
 m = ""
